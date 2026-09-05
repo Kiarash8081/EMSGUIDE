@@ -1,4 +1,5 @@
 assets/users-ui-original.png
+assets/_inspect/
 node_modules/
 package-lock.json
 js/pdf-assets.js

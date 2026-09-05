@@ -162,6 +162,7 @@ button { font-family: inherit; }
 .note { margin-bottom: 10px; font-size: 0.8rem; }
 
 .shot {
+  position: relative;
   margin: 0 0 10px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -169,7 +170,44 @@ button { font-family: inherit; }
   background: var(--card);
 }
 
+.shot-stage {
+  position: relative;
+  transform-origin: var(--ox, 50%) var(--oy, 50%);
+  transition: transform 0.45s ease;
+}
+
+.shot.is-zoomed .shot-stage {
+  transform: scale(var(--zoom, 1));
+}
+
 .shot img { width: 100%; height: auto; }
+
+.shot-ring {
+  position: absolute;
+  left: var(--rx);
+  top: var(--ry);
+  width: var(--rw);
+  height: var(--rh);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 0 0 0 2000px rgba(43, 43, 41, 0.32);
+  pointer-events: none;
+}
+
+.shot-reset {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  border: 0;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 
 .cards {
   display: grid;
@@ -182,6 +220,11 @@ button { font-family: inherit; }
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 10px 12px;
+  cursor: pointer;
+}
+
+.card.is-active {
+  border-color: var(--ink);
 }
 
 .card h3 {
@@ -193,6 +236,24 @@ button { font-family: inherit; }
   margin: 0;
   color: var(--muted);
   font-size: 0.8rem;
+}
+
+.zoom-btn {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card.is-active .zoom-btn {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
 }
 
 .finale {
