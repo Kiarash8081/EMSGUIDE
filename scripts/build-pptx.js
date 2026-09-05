@@ -111,6 +111,10 @@ function shotSlide(title, subtitle, image) {
   footer(slide);
 }
 
+function rtlText(text) {
+  return String(text).replace(/([.؟!])/g, "$1\u200F");
+}
+
 function cardsSlide(title, subtitle, items) {
   const slide = pres.addSlide();
   slide.background = { color: C.bg };
@@ -142,13 +146,13 @@ function cardsSlide(title, subtitle, items) {
       x: x + cardW - 0.08, y: y + 0.18, w: 0.07, h: Math.min(0.42, cardH - 0.36),
       fill: { color: C.clay },
     });
-    slide.addText(item[0], {
+    slide.addText(rtlText(item[0]), {
       x: x + 0.22, y: y + 0.14, w: cardW - 0.46, h: 0.34,
-      fontFace: FONT, fontSize: 15, color: C.ink, bold: true, align: "right", margin: 0,
+      fontFace: FONT, fontSize: 15, color: C.ink, bold: true, align: "right", rtlMode: true, margin: 0,
     });
-    slide.addText(item[1], {
+    slide.addText(rtlText(item[1]), {
       x: x + 0.22, y: y + 0.48, w: cardW - 0.46, h: cardH - 0.64,
-      fontFace: FONT, fontSize: 13, color: C.muted, align: "right", margin: 0, valign: "top",
+      fontFace: FONT, fontSize: 13, color: C.muted, align: "right", rtlMode: true, valign: "top", margin: 0,
     });
   });
   footer(slide);
@@ -304,7 +308,6 @@ cardsSlide("راهنمای دسترسی سریع", "هر کارت واحد، و�
   ["کارت واحد", "روی کارت، کد واحد مثل E102، عنوان گروه، وضعیت آنلاین و تعداد آسانسور همان واحد دیده می‌شود."],
   ["وضعیت آنلاین", "نقطه سبز کنار کد یعنی واحد الان متصل و در دسترس است. اگر سبز نباشد، واحد آفلاین است."],
   ["تعداد آسانسورها", "عدد پایین کارت نشان می‌دهد چند آسانسور به آن واحد وصل شده‌اند."],
-  ["پین دسترسی سریع", "واحدهای پرکاربرد را پین کنید تا همیشه در این صفحه باشند و لازم نباشد هر بار در فهرست بگردید."],
 ]);
 
 darkSlide("واحدهای لبه", "بخش دوم", "فهرست کامل، فیلتر و مدیریت وضعیت");
