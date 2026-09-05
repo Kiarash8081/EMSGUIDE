@@ -24,6 +24,7 @@ jobs:
           cp index.html publish/
           cp -r css js assets publish/
           cp LIFTX-EMS-App-Guide.pptx publish/ || true
+          cp LIFTX-EMS-App-Guide.pdf publish/ || true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: publish
