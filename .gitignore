@@ -1,0 +1,9 @@
+assets/users-ui-original.png
+node_modules/
+package-lock.json
+js/pdf-assets.js
+js/vendor/
+_pptx_extract/
+*.log
+.DS_Store
+Thumbs.db
